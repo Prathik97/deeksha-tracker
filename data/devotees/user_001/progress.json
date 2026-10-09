@@ -1,0 +1,37 @@
+{
+  "enrollment_id": "enr_user_001_2026-10-09",
+  "is_complete": false,
+  "pradakshina_dates": ["2026-10-09"],
+  "special_actions_done": {
+    "day_1": {
+      "visit_temple": true,
+      "collect_coconut": true,
+      "recite_sankalpa": true,
+      "tie_coconut": true,
+      "tie_thread": true
+    },
+    "day_16": {}
+  },
+  "days": {
+    "2026-10-09": {
+      "day_number": 1,
+      "entry_status": "on_time",
+      "logged_at": "2026-10-09T17:21:36+05:30",
+      "rules_checked": {
+        "morning_bath": true,
+        "mantra_108": true,
+        "sankalpa_mind": true,
+        "orange_thread": true,
+        "vegetarian": true,
+        "no_alcohol": true,
+        "no_tobacco": true,
+        "no_harsh_speech": true,
+        "celibacy": true
+      },
+      "flags": [],
+      "mantra_method": "video",
+      "pradakshina_done": true,
+      "notes": "Morning routine back-filled at setup; remaining answers completed same evening. Onion/garlic rules disabled by devotee."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "enrollment_id": "enr_user_001_2026-10-09",
+  "devotee": {
+    "id": "user_001",
+    "name": "Prathik Kumar MP"
+  },
+  "template_id": "karya-siddhi-anjaneya-16day",
+  "template_version": 1,
+  "start_date": "2026-10-09",
+  "timezone": "Asia/Calcutta",
+  "reminder_time": "09:00",
+  "pradakshina_method": "four_days",
+  "planned_pradakshina_days": [3, 9, 10, 16],
+  "rule_overrides": {
+    "no_onion": false,
+    "no_garlic": false,
+    "no_tamasic_media": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "deeksha-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Poorna Phala Deeksha daily check-in: pure TypeScript core plus a thin CLI adapter",
+  "scripts": {
+    "test": "vitest run",
+    "briefing": "ts-node core/cli.ts briefing",
+    "checkin": "ts-node core/cli.ts checkin"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "ajv": "^8.20.0",
+    "date-fns": "^4.4.0",
+    "date-fns-tz": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "5.9",
+    "vitest": "^5.0.3"
+  }
+}

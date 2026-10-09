@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://deeksha.example/schema/enrollment.schema.json",
+  "title": "Enrollment",
+  "description": "A devotee's participation in one vrata template: dates, timezone, method and rule overrides.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "enrollment_id", "devotee", "template_id", "template_version", "start_date",
+    "timezone", "reminder_time", "pradakshina_method", "rule_overrides"
+  ],
+  "properties": {
+    "enrollment_id": { "type": "string", "minLength": 1 },
+    "devotee": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 }
+      }
+    },
+    "template_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "template_version": { "type": "integer", "minimum": 1 },
+    "start_date": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" },
+    "timezone": { "type": "string", "minLength": 1 },
+    "reminder_time": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
+    "pradakshina_method": { "type": "string", "minLength": 1 },
+    "planned_pradakshina_days": {
+      "type": "array",
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": { "type": "integer", "minimum": 1, "maximum": 16 }
+    },
+    "rule_overrides": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z0-9_]+$" },
+      "additionalProperties": { "type": "boolean" }
+    }
+  }
+}

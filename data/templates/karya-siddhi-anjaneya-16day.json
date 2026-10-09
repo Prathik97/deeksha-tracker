@@ -1,0 +1,69 @@
+{
+  "template_id": "karya-siddhi-anjaneya-16day",
+  "version": 1,
+  "vrata_type": "poorna_phala",
+  "name": "Karya Siddhi Anjaneya — Poorna Phala Deeksha",
+  "duration_days": 16,
+  "default_locale": "en",
+  "temple": {
+    "temple_id": "karya-siddhi-anjaneya-girinagar",
+    "name": "Karya Siddhi Anjaneya Swamy Temple",
+    "city": "Girinagar, Bengaluru"
+  },
+  "category_order": ["morning", "all_day", "diet", "abstinence", "conduct", "pradakshina"],
+  "resources": {
+    "mantra_108_video": {
+      "label": "Karya Siddhi Anjaneya Mantra — 108 times chanting guide",
+      "url": "https://youtu.be/mmkcfmbe8eI?is=5XE_3V2BEbKJGR9k",
+      "note": "Open this and chant along. The video counts all 108 for you."
+    }
+  },
+  "pradakshina_methods": {
+    "four_days": {
+      "label": "Any 4 days within 16 days",
+      "rounds_per_session": 16,
+      "total_sessions_required": 4
+    },
+    "weekly_twice": {
+      "label": "Twice a week",
+      "rounds_per_session": 41,
+      "sessions_per_week": 2,
+      "note": "Weeks calculated from start_date. Aim for 2 sessions in each 7-day window."
+    }
+  },
+  "rules": [
+    { "id": "morning_bath", "label": "Morning bath before chanting", "category": "morning", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "mantra_108", "label": "Chant Karya Siddhi Anjaneya Mantra 108 times", "category": "morning", "default_enabled": true, "mandatory": true, "resource": "mantra_108_video" },
+    { "id": "sankalpa_mind", "label": "Hold your Sankalpa in mind during chanting", "category": "morning", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "orange_thread", "label": "Orange thread on wrist — not removed", "category": "all_day", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "vegetarian", "label": "Strictly vegetarian — no non-veg", "category": "diet", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "no_onion", "label": "No onion", "category": "diet", "default_enabled": true, "mandatory": false, "resource": null },
+    { "id": "no_garlic", "label": "No garlic", "category": "diet", "default_enabled": true, "mandatory": false, "resource": null },
+    { "id": "no_alcohol", "label": "No alcohol", "category": "abstinence", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "no_tobacco", "label": "No cigarettes or tobacco", "category": "abstinence", "default_enabled": true, "mandatory": true, "resource": null },
+    { "id": "no_harsh_speech", "label": "Sattvic conduct — no anger, no harsh speech", "category": "conduct", "default_enabled": true, "mandatory": false, "resource": null },
+    { "id": "celibacy", "label": "Celibacy (standard vrata rule)", "category": "conduct", "default_enabled": true, "mandatory": false, "resource": null },
+    { "id": "no_tamasic_media", "label": "No tamasic content — violent media, negative inputs", "category": "conduct", "default_enabled": false, "mandatory": false, "resource": null }
+  ],
+  "special_days": {
+    "day_1": {
+      "label": "Day 1 — Starting actions",
+      "actions": [
+        { "id": "visit_temple", "label": "Visit temple" },
+        { "id": "collect_coconut", "label": "Collect Poorna Phala (coconut with outer shell) from pooja counter" },
+        { "id": "recite_sankalpa", "label": "Recite Sankalpa with priest" },
+        { "id": "tie_coconut", "label": "Tie coconut at temple" },
+        { "id": "tie_thread", "label": "Collect orange thread and tie on wrist" }
+      ]
+    },
+    "day_16": {
+      "label": "Day 16 — Conclusion",
+      "actions": [
+        { "id": "visit_temple", "label": "Visit temple" },
+        { "id": "untie_coconut", "label": "Untie the coconut" },
+        { "id": "prepare_prasadam", "label": "Prepare sweet dish from coconut as prasadam" },
+        { "id": "share_prasadam", "label": "Share prasadam with family and friends" }
+      ]
+    }
+  }
+}

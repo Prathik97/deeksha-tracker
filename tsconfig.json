@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": [
+        "core/*"
+      ]
+    }
+  },
+  "include": [
+    "core/**/*.ts",
+    "adapters/**/*.ts",
+    "scripts/**/*.ts",
+    "tests/**/*.ts",
+    "next-app/lib/view.ts",
+    "vitest.config.ts"
+  ],
+  "ts-node": {
+    "transpileOnly": false
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://deeksha.example/schema/vrata_template.schema.json",
+  "title": "Vrata template",
+  "description": "Temple-owned, versioned definition of a vrata. Reused by many devotees through enrollments.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "template_id", "version", "vrata_type", "name", "duration_days", "default_locale",
+    "temple", "category_order", "resources", "pradakshina_methods", "rules", "special_days"
+  ],
+  "properties": {
+    "template_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "vrata_type": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "duration_days": { "type": "integer", "minimum": 1 },
+    "default_locale": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+    "temple": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["temple_id", "name", "city"],
+      "properties": {
+        "temple_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "city": { "type": "string", "minLength": 1 },
+        "address": { "type": "string" }
+      }
+    },
+    "category_order": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/category" }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/resource" }
+    },
+    "pradakshina_methods": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/definitions/pradakshina_method" }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/rule" }
+    },
+    "special_days": {
+      "type": "object",
+      "propertyNames": { "pattern": "^day_[0-9]+$" },
+      "additionalProperties": { "$ref": "#/definitions/special_day" }
+    }
+  },
+  "definitions": {
+    "category": {
+      "type": "string",
+      "enum": ["morning", "all_day", "diet", "abstinence", "conduct", "pradakshina"]
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "note": { "type": "string" }
+      }
+    },
+    "pradakshina_method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "rounds_per_session"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "rounds_per_session": { "type": "integer", "minimum": 1 },
+        "total_sessions_required": { "type": "integer", "minimum": 1 },
+        "sessions_per_week": { "type": "integer", "minimum": 1 },
+        "note": { "type": "string" }
+      },
+      "anyOf": [
+        { "required": ["total_sessions_required"] },
+        { "required": ["sessions_per_week"] }
+      ]
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "category", "default_enabled", "mandatory", "resource"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "label": { "type": "string", "minLength": 1 },
+        "category": {
+          "type": "string",
+          "enum": ["morning", "all_day", "diet", "abstinence", "conduct"]
+        },
+        "default_enabled": { "type": "boolean" },
+        "mandatory": { "type": "boolean" },
+        "resource": { "type": ["string", "null"] }
+      }
+    },
+    "special_day": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "actions"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "label": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}
